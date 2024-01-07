@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Order</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <section class="book-section">
+      <h1>Book Title</h1>
+	  <img src="book.jpeg" alt="Book Cover" class="book-image" width="100%" height="300px">
+      <p>Book Description goes here...</p>
+      <p><span style="color:red;text-decoration:line-through">300</span><span style="color:green;font-weight: bold"> 150 </span> EGP </p>
+    </section>
+    <div class="buttons">
+      <button onclick="orderBook('Egypt')">Order from Egypt</button>
+      <button onclick="orderBook('Algeria')">Order from Algeria</button>
+    </div>
+  </div>
+  
+  <script>
+    function orderBook(country) {
+	  let message = encodeURIComponent("May I order world language's book?");
+	  let messengerLink = '';
+	
+	  if (country === 'Egypt') {
+	    messengerLink = 'https://m.me/122094123896019016'; // Replace PAGE_ID with Egypt's Facebook Page ID or username
+	  } else if (country === 'Algeria') {
+	    messengerLink = 'https://m.me/122094123896019016'; // Replace PAGE_ID with Algeria's Facebook Page ID or username
+	  }
+	
+	  if (messengerLink !== '') {
+	    window.open(`${messengerLink}?text=${message} | ${country}`, '_blank');
+	  } else {
+	    alert('Messenger link not available for this country.');
+	  }
+    }
+  </script>
+</body>
+</html>
